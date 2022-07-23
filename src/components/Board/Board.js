@@ -1,17 +1,11 @@
 import React, { useState } from "react";
-import { boardDefault } from "../../../Words";
+import { boardDefault } from "../../Words";
 import Letter from "./Letter";
+import "./Board.css";
 function Board() {
   const [board, setBoard] = useState(boardDefault);
   return (
     <div className="board_container">
-      <div className="row">
-        <Letter letterPosition={0} attemptValue={0} />
-        <Letter letterPosition={1} attemptValue={0} />
-        <Letter letterPosition={2} attemptValue={0} />
-        <Letter letterPosition={3} attemptValue={0} />
-        <Letter letterPosition={4} attemptValue={0} />
-      </div>
       <div className="row">
         <Letter letterPosition={0} attemptValue={0} />
         <Letter letterPosition={1} attemptValue={0} />
