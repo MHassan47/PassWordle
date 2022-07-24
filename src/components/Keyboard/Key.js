@@ -6,7 +6,20 @@ function Key({ keyValue }) {
   const { board, setBoard, currentAttempt, setCurrentAttempt } =
     useContext(AppContext);
 
-  return <div className="key">{keyValue}</div>;
+  const selectLetter = () => {
+    const newBoard = [...board];
+    newBoard[currentAttempt.attempt][currentAttempt.letterPosition] = keyValue;
+    setBoard(newBoard);
+    setCurrentAttempt({
+      ...currentAttempt,
+      letterPosition: currentAttempt.letterPosition + 1,
+    });
+  };
+  return (
+    <div className="key" onClick={selectLetter}>
+      {keyValue}
+    </div>
+  );
 }
 
 export default Key;
