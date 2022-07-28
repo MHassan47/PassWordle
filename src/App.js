@@ -14,7 +14,7 @@ function App() {
     attempt: 0,
     letterPosition: 0,
   });
-
+  const [correctPassword, setCorrectPassword] = useState("12345");
   const onSelectLetter = (keyValue) => {
     console.log(keyValue);
     if (currentAttempt.letterPosition > 4) return;
@@ -58,6 +58,7 @@ function App() {
           onSelectLetter,
           onEnter,
           onDelete,
+          correctPassword,
         }}
       >
         <Header />
