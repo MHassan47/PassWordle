@@ -3,7 +3,7 @@ import { boardDefault } from "../src/Words";
 import Board from "./components/Board/Board";
 import Keyboard from "./components/Keyboard/Keyboard";
 import Header from "./components/Header/Header";
-import { createContext } from "react";
+import { createContext, useEffect } from "react";
 import { useState } from "react";
 
 export const AppContext = createContext();
@@ -15,6 +15,13 @@ function App() {
     letterPosition: 0,
   });
   const [correctPassword, setCorrectPassword] = useState("12345");
+
+  useEffect(() => {
+    const newCorrectPassword = Math.floor(Math.random() * 99999).toString();
+    setCorrectPassword(newCorrectPassword);
+    console.log(newCorrectPassword);
+  }, []);
+
   const onSelectLetter = (keyValue) => {
     console.log(keyValue);
     if (currentAttempt.letterPosition > 4) return;
