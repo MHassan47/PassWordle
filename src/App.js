@@ -15,6 +15,27 @@ function App() {
     letterPosition: 0,
   });
 
+  const onSelectLetter = (keyValue) => {
+    console.log(keyValue);
+    if (currentAttempt.letterPosition > 4) return;
+    const newBoard = [...board];
+    newBoard[currentAttempt.attempt][currentAttempt.letterPosition] = keyValue;
+    setBoard(newBoard);
+    setCurrentAttempt({
+      ...currentAttempt,
+      letterPosition: currentAttempt.letterPosition + 1,
+    });
+  };
+
+  const onEnter = () => {
+    if (currentAttempt.letterPosition !== 5) return;
+    setCurrentAttempt({
+      ...currentAttempt,
+      attempt: currentAttempt.attempt + 1,
+      letterPosition: 0,
+    });
+  };
+
   const onDelete = () => {
     if (currentAttempt.letterPosition === 0) return;
     const newBoard = [...board];
@@ -29,7 +50,15 @@ function App() {
   return (
     <div className="App">
       <AppContext.Provider
-        value={{ board, setBoard, currentAttempt, setCurrentAttempt, onDelete }}
+        value={{
+          board,
+          setBoard,
+          currentAttempt,
+          setCurrentAttempt,
+          onSelectLetter,
+          onEnter,
+          onDelete,
+        }}
       >
         <Header />
         <Board />
