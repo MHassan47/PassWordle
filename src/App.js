@@ -2,6 +2,7 @@ import "./App.css";
 import { boardDefault } from "../src/Words";
 import Board from "./components/Board/Board";
 import Keyboard from "./components/Keyboard/Keyboard";
+import Header from "./components/Header/Header";
 import { createContext } from "react";
 import { useState } from "react";
 
@@ -18,6 +19,7 @@ function App() {
       <AppContext.Provider
         value={{ board, setBoard, currentAttempt, setCurrentAttempt }}
       >
+        <Header />
         <Board />
         <Keyboard />
       </AppContext.Provider>
