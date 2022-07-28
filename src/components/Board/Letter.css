@@ -8,3 +8,15 @@
   justify-content: center;
   align-items: center;
 }
+
+#correct {
+  background-color: green;
+}
+
+#close {
+  background-color: yellow;
+}
+
+#incorrect {
+  background-color: black;
+}
