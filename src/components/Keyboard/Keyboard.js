@@ -2,30 +2,17 @@ import React from "react";
 import "./Keyboard.css";
 
 import Key from "./Key";
-const keys1 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
-const keys2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
-const keys3 = ["Z", "X", "C", "V", "B", "N", "M"];
+const keys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 function Keyboard() {
   return (
     <div className="keyboard">
-      <div className="line_one">
-        {keys1.map((key) => {
-          return <Key key={key} keyValue={key} />;
-        })}
-      </div>
-      <div className="line_two">
-        {keys2.map((key) => {
-          return <Key key={key} keyValue={key} />;
-        })}
-      </div>
-      <div className="line_three">
-        <Key keyValue={"ENTER"} bigKey />
-        {keys3.map((key) => {
-          return <Key key={key} keyValue={key} />;
-        })}
-        <Key keyValue={"DELETE"} bigKey />
-      </div>
+      <Key keyValue={"ENTER"} bigKey />
+      {keys.map((key) => {
+        return <Key key={key} keyValue={key} />;
+      })}
+
+      <Key keyValue={"DELETE"} bigKey />
     </div>
   );
 }
