@@ -14,10 +14,22 @@ function App() {
     attempt: 0,
     letterPosition: 0,
   });
+
+  const onDelete = () => {
+    if (currentAttempt.letterPosition === 0) return;
+    const newBoard = [...board];
+    newBoard[currentAttempt.attempt][currentAttempt.letterPosition - 1] = "";
+    setCurrentAttempt({
+      ...currentAttempt,
+      attempt: currentAttempt.attempt,
+      letterPosition: currentAttempt.letterPosition - 1,
+    });
+  };
+
   return (
     <div className="App">
       <AppContext.Provider
-        value={{ board, setBoard, currentAttempt, setCurrentAttempt }}
+        value={{ board, setBoard, currentAttempt, setCurrentAttempt, onDelete }}
       >
         <Header />
         <Board />

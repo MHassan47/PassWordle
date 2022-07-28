@@ -3,13 +3,11 @@ import "./Keyboard.css";
 import { useContext } from "react";
 import { AppContext } from "../../App";
 function Key({ keyValue, bigKey }) {
-  const { board, setBoard, currentAttempt, setCurrentAttempt } =
+  const { board, setBoard, currentAttempt, setCurrentAttempt, onDelete } =
     useContext(AppContext);
 
   const selectLetter = () => {
-    console.log("clicked");
     if (keyValue === "ENTER") {
-      console.log("ENTER");
       if (currentAttempt.letterPosition !== 5) return;
       setCurrentAttempt({
         ...currentAttempt,
@@ -17,12 +15,7 @@ function Key({ keyValue, bigKey }) {
         letterPosition: 0,
       });
     } else if (keyValue === "DELETE") {
-      if (currentAttempt.letterPosition === 0) return;
-      setCurrentAttempt({
-        ...currentAttempt,
-        attempt: currentAttempt.attempt,
-        letterPosition: currentAttempt.letterPosition - 1,
-      });
+      onDelete();
     } else {
       if (currentAttempt.letterPosition > 4) return;
       const newBoard = [...board];
