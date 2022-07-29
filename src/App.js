@@ -3,6 +3,7 @@ import { boardDefault } from "../src/Words";
 import Board from "./components/Board/Board";
 import Keyboard from "./components/Keyboard/Keyboard";
 import Header from "./components/Header/Header";
+import GameOver from "./components/GameOver/GameOver";
 import { createContext, useEffect } from "react";
 import { useState } from "react";
 
@@ -88,8 +89,9 @@ function App() {
         }}
       >
         <Header />
+        {endGame && <GameOver />}
         <Board />
-        {endGame ? <div>{endGame}</div> : <Keyboard />}
+        {!endGame && <Keyboard />}
       </AppContext.Provider>
     </div>
   );
