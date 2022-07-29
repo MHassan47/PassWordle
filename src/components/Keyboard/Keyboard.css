@@ -18,7 +18,7 @@
   display: flex;
   height: 60px;
   width: 60px;
-
+  cursor: pointer;
   background-color: grey;
   margin: 0.5rem;
   border-radius: 5px;
@@ -30,4 +30,9 @@
 #big {
   display: flex;
   width: 120px;
+}
+
+#disabled {
+  background-color: black;
+  cursor: default;
 }
