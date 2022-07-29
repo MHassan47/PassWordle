@@ -6,7 +6,8 @@ import { AppContext } from "../../App";
 const keys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 function Keyboard() {
-  const { onSelectLetter, onEnter, onDelete } = useContext(AppContext);
+  const { onSelectLetter, onEnter, onDelete, disabledLetters } =
+    useContext(AppContext);
   const handleKeyboard = useCallback((event) => {
     if (event.key === "Enter") {
       onEnter();
@@ -32,7 +33,13 @@ function Keyboard() {
   return (
     <div className="keyboard">
       {keys.map((key) => {
-        return <Key key={key} keyValue={key} />;
+        return (
+          <Key
+            key={key}
+            keyValue={key}
+            disabled={disabledLetters.includes(key)}
+          />
+        );
       })}
 
       <Key keyValue={"ENTER"} bigKey />
