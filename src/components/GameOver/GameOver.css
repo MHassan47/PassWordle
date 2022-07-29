@@ -1,0 +1,25 @@
+.game_over {
+  display: flex;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.winner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loser {
+  display: flex;
+  justify-content: center;
+}
+.total_guesses {
+  display: flex;
+  justify-content: center;
+}
+.correct_password {
+  display: flex;
+  justify-content: center;
+  color: rgba(17, 102, 17, 0.743);
+}
