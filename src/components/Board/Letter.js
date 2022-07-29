@@ -9,6 +9,8 @@ function Letter({ letterPosition, attemptValue }) {
     currentAttempt,
     disabledLetters,
     setDisabledLetters,
+    endGame,
+    setEndGame,
   } = useContext(AppContext);
   const number = board[attemptValue][letterPosition];
 
@@ -21,10 +23,10 @@ function Letter({ letterPosition, attemptValue }) {
 
   useEffect(() => {
     if (number !== "" && !correct && !wrongSpot) {
-      console.log(number);
       setDisabledLetters((prev) => [...prev, number]);
     }
   }, [currentAttempt.attempt]);
+
   return (
     <div className="letter" id={colorID}>
       {number}
