@@ -1,3 +1,13 @@
+# PassWordle
+
+A Wordle inspired game built with React.js
+
+!["Landingpage"](https://github.com/MHassan47/Wordle-Clone/blob/master/src/Docs/passwordle_mainpage.PNG?raw=true)
+!["Mobile view"](https://github.com/MHassan47/Wordle-Clone/blob/master/src/Docs/passwordle_mobile.PNG?raw=true)
+!["Playing the game"](https://github.com/MHassan47/Wordle-Clone/blob/master/src/Docs/passwordle_playing.PNG?raw=true)
+!["Winner!"](https://github.com/MHassan47/Wordle-Clone/blob/master/src/Docs/passwordle_winner.PNG?raw=true)
+!["Loser :("](https://github.com/MHassan47/Wordle-Clone/blob/master/src/Docs/passwordle_loser.PNG?raw=true)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
