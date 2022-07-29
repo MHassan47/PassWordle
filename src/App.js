@@ -16,6 +16,8 @@ function App() {
   });
   const [correctPassword, setCorrectPassword] = useState("12345");
   const [disabledLetters, setDisabledLetters] = useState([]);
+  const [endGame, setEndGame] = useState("");
+
   useEffect(() => {
     const newCorrectPassword = Math.floor(Math.random() * 99999).toString();
     setCorrectPassword(newCorrectPassword);
@@ -40,6 +42,20 @@ function App() {
       attempt: currentAttempt.attempt + 1,
       letterPosition: 0,
     });
+
+    let currentGuess = "";
+    for (let number in board[currentAttempt.attempt]) {
+      currentGuess += board[currentAttempt.attempt][number];
+    }
+    console.log(currentGuess);
+
+    if (currentGuess === correctPassword) {
+      setEndGame("Winner");
+    }
+
+    if (currentAttempt.attempt === 5) {
+      setEndGame("Loser");
+    }
   };
 
   const onDelete = () => {
@@ -52,7 +68,7 @@ function App() {
       letterPosition: currentAttempt.letterPosition - 1,
     });
   };
-
+  console.log("-----", endGame);
   return (
     <div className="App">
       <AppContext.Provider
@@ -67,11 +83,13 @@ function App() {
           correctPassword,
           disabledLetters,
           setDisabledLetters,
+          endGame,
+          setEndGame,
         }}
       >
         <Header />
         <Board />
-        <Keyboard />
+        {endGame ? <div>{endGame}</div> : <Keyboard />}
       </AppContext.Provider>
     </div>
   );
