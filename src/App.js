@@ -15,7 +15,7 @@ function App() {
     letterPosition: 0,
   });
   const [correctPassword, setCorrectPassword] = useState("12345");
-
+  const [disabledLetters, setDisabledLetters] = useState([]);
   useEffect(() => {
     const newCorrectPassword = Math.floor(Math.random() * 99999).toString();
     setCorrectPassword(newCorrectPassword);
@@ -23,7 +23,6 @@ function App() {
   }, []);
 
   const onSelectLetter = (keyValue) => {
-    console.log(keyValue);
     if (currentAttempt.letterPosition > 4) return;
     const newBoard = [...board];
     newBoard[currentAttempt.attempt][currentAttempt.letterPosition] = keyValue;
@@ -66,6 +65,8 @@ function App() {
           onEnter,
           onDelete,
           correctPassword,
+          disabledLetters,
+          setDisabledLetters,
         }}
       >
         <Header />
