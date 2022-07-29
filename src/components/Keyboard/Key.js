@@ -2,16 +2,9 @@ import React from "react";
 import "./Keyboard.css";
 import { useContext } from "react";
 import { AppContext } from "../../App";
-function Key({ keyValue, bigKey }) {
-  const {
-    board,
-    setBoard,
-    currentAttempt,
-    setCurrentAttempt,
-    onSelectLetter,
-    onEnter,
-    onDelete,
-  } = useContext(AppContext);
+function Key({ keyValue, bigKey, disabled }) {
+  const { currentAttempt, onSelectLetter, onEnter, onDelete } =
+    useContext(AppContext);
 
   const selectLetter = () => {
     if (keyValue === "ENTER") {
@@ -22,9 +15,13 @@ function Key({ keyValue, bigKey }) {
       onSelectLetter(keyValue);
     }
   };
-  console.log(currentAttempt);
+  // console.log(currentAttempt);
   return (
-    <div className="key" onClick={selectLetter} id={bigKey && "big"}>
+    <div
+      className="key"
+      onClick={selectLetter}
+      id={bigKey ? "big" : disabled && "disabled"}
+    >
       {keyValue}
     </div>
   );
