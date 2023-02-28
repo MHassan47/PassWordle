@@ -10,7 +10,7 @@ function GameOver() {
         {endGame === "Winner" ? (
           <div className="winner"> 🎊🎊🎊 {endGame} 🎊🎊🎊</div>
         ) : (
-          <div className="loser">{endGame} :( </div>
+          <div className="loser">{endGame} </div>
         )}
         {endGame === "Winner" ? (
           <div className="total_geusses">
