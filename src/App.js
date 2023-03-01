@@ -51,11 +51,11 @@ function App() {
     console.log(currentGuess);
 
     if (currentGuess === correctPassword) {
-      setEndGame("You Won");
+      setEndGame("Winner");
     }
 
     if (currentAttempt.attempt === 5) {
-      setEndGame("You Lost");
+      setEndGame("Lost");
     }
   };
 
